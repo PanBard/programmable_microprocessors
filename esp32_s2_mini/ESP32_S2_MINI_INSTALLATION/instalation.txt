@@ -1,0 +1,9 @@
+1.  Arduino -> Preferences in the Additional Board Manager URLs field:  https://raw.githubusercontent.com/espressif/arduino-esp32/gh-pages/package_esp32_dev_index.json
+2.  Tools -> Board -> Boards Manager: install esp32 by Espressif Systems
+3.  Tools -> Board -> esp32 -> LOLIN S2 MINI (select board)
+
+How upload sketch:
+Load up the standard blink sketch into the Ardiuno IDE, and plug in the LOLIN S2 mini board via USB-C, and select the appropriate port. Press the upload button on the Arduino IDE, then hit reset, and the interface button on the S2 mini. Quickly release the reset button, then the 0 interface button to put it into programming mode, and if all is well, the blink program will be loaded onto the S2 mini. An “error” message may be displayed, which is simply telling you to hit the reset button to put the device into run mode. Reset, and the onboard LED should blink away.
+
+
+site: https://embeddedcomputing.com/technology/open-source/development-kits/hands-on-with-the-wemos-s2-mini-esp32-development-board
