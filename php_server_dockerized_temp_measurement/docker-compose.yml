@@ -1,0 +1,50 @@
+version: '3.3'
+
+services:
+
+    phpserver_v3:
+
+        container_name: php_server
+        build:
+          context: .
+
+        ports:
+          - 88:80
+        volumes:
+          - ./:/var/www/html
+        networks:
+          - custom_network
+
+
+    db:
+        container_name: mysql_db
+        image: mysql:8.0
+        command: --default-authentication-plugin=mysql_native_password
+        restart: always
+        environment:
+          MYSQL_ROOT_PASSWORD: root
+          MYSQL_DATABASE: db
+          MYSQL_USER: admin
+          MYSQL_PASSWORD: admin
+        ports:
+          - 3306:3306
+        networks:
+          - custom_network
+
+    phpmyadmin:
+
+        container_name: phpmyadmin
+        environment:
+            - PMA_ARBITRARY=1
+        ports:
+            - 8234:80
+        image: phpmyadmin
+
+        networks:
+          - custom_network
+
+          
+
+networks:
+  custom_network:
+    driver: bridge
